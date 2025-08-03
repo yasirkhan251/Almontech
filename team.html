@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team | Almontech</title>
+  
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body {background: #0c061d; color: #f3e8ff; font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;}
+.glass {background: rgba(44,16,56,0.5); backdrop-filter: blur(8px); border-radius: 2rem; border: 2px solid transparent; position: relative; overflow: hidden;}
+.neon-border {border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%); border-image-slice: 1; border-width: 2.5px; border-style: solid; box-shadow: 0 0 18px 0 #b621fe44;}
+.neon-btn {border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%); border-image-slice: 1; border-width: 2.5px; border-style: solid; background: #0c061d; color: #fff; box-shadow: 0 0 18px #b621fe44; transition: background 0.2s, color 0.2s;}
+.neon-btn:hover {background: #191130; color: #ff8cf7;}
+.team-img {border-radius: 100%; border-width: 3.5px; border-style: solid; border-image: linear-gradient(90deg,#b621fe 10%, #f500c7 80%); border-image-slice: 1; box-shadow: 0 0 16px #c026d399;}
+.section-title {text-shadow: 0 0 8px #c026d3;}
+::selection {background: #b621fe66;}
+</style>
+
+</head>
+<body>
+
+<nav class="fixed w-full top-0 left-0 z-50 bg-black bg-opacity-70 backdrop-blur border-b border-gray-800">
+  <div class="container mx-auto flex items-center justify-between px-6 py-4">
+    <a href="index.html" class="text-2xl font-bold text-white tracking-widest section-title">Almontech</a>
+    <div class="flex space-x-8">
+      <a href="index.html" class="hover:text-pink-400">Home</a>
+      <a href="about.html" class="hover:text-pink-400">About</a>
+      <a href="services.html" class="hover:text-pink-400">Services</a>
+      <a href="projects.html" class="hover:text-pink-400">Projects</a>
+      <a href="team.html" class="hover:text-pink-400">Team</a>
+      <a href="careers.html" class="hover:text-pink-400">Careers</a>
+      <a href="blog.html" class="hover:text-pink-400">Blog</a>
+      <a href="contact.html" class="hover:text-pink-400">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="container mx-auto px-6 py-32">
+  <div class="glass neon-border max-w-4xl mx-auto p-10 text-center mt-12">
+    <h2 class="text-4xl font-bold mb-6 section-title">Our Team</h2>
+    <div class="flex flex-wrap justify-center gap-12">
+      <div class="glass neon-border p-6 w-80 text-center">
+        <img src="https://randomuser.me/api/portraits/men/41.jpg" class="team-img w-32 h-32 mx-auto mb-4 object-cover" alt="Yasir Khan">
+        <h3 class="text-xl font-bold section-title">Yasir Khan</h3>
+        <p>Co-Founder & Full-Stack Developer</p>
+      </div>
+      <div class="glass neon-border p-6 w-80 text-center">
+        <img src="https://randomuser.me/api/portraits/men/97.jpg" class="team-img w-32 h-32 mx-auto mb-4 object-cover" alt="Moaaz Raashid P M">
+        <h3 class="text-xl font-bold section-title">Moaaz Raashid P M</h3>
+        <p>Co-Founder & ML Engineer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-6 text-center mt-12">
+  <p class="text-purple-400">&copy; <span id="year"></span> Almontech. All rights reserved.</p>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+</body>
+</html>

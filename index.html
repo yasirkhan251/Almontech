@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Almontech | Futuristic Web & ML Solutions</title>
+  
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body {background: #0c061d; color: #f3e8ff; font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;}
+.glass {background: rgba(44,16,56,0.5); backdrop-filter: blur(8px); border-radius: 2rem; border: 2px solid transparent; position: relative; overflow: hidden;}
+.neon-border {border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%); border-image-slice: 1; border-width: 2.5px; border-style: solid; box-shadow: 0 0 18px 0 #b621fe44;}
+.neon-btn {border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%); border-image-slice: 1; border-width: 2.5px; border-style: solid; background: #0c061d; color: #fff; box-shadow: 0 0 18px #b621fe44; transition: background 0.2s, color 0.2s;}
+.neon-btn:hover {background: #191130; color: #ff8cf7;}
+.team-img {border-radius: 100%; border-width: 3.5px; border-style: solid; border-image: linear-gradient(90deg,#b621fe 10%, #f500c7 80%); border-image-slice: 1; box-shadow: 0 0 16px #c026d399;}
+.section-title {text-shadow: 0 0 8px #c026d3;}
+::selection {background: #b621fe66;}
+</style>
+
+</head>
+<body>
+
+<nav class="fixed w-full top-0 left-0 z-50 bg-black bg-opacity-70 backdrop-blur border-b border-gray-800">
+  <div class="container mx-auto flex items-center justify-between px-6 py-4">
+    <a href="index.html" class="text-2xl font-bold text-white tracking-widest section-title">Almontech</a>
+    <div class="flex space-x-8">
+      <a href="index.html" class="hover:text-pink-400">Home</a>
+      <a href="about.html" class="hover:text-pink-400">About</a>
+      <a href="services.html" class="hover:text-pink-400">Services</a>
+      <a href="projects.html" class="hover:text-pink-400">Projects</a>
+      <a href="team.html" class="hover:text-pink-400">Team</a>
+      <a href="careers.html" class="hover:text-pink-400">Careers</a>
+      <a href="blog.html" class="hover:text-pink-400">Blog</a>
+      <a href="contact.html" class="hover:text-pink-400">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section id="home" class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black">
+  <video autoplay loop muted playsinline
+    class="absolute top-0 left-0 w-full h-full object-cover brightness-50 z-0">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-digital-earth-1171-large.mp4" type="video/mp4">
+  </video>
+  <div class="relative z-10 flex flex-col items-center w-full">
+    <img src="img/almontech-logo.webp" alt="Almontech Logo" class="w-56 md:w-72 mx-auto mb-6 drop-shadow-2xl" style="filter: drop-shadow(0 0 32px #c026d3;" />
+    <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 section-title">Almontech</h1>
+    <p class="text-2xl md:text-3xl font-semibold mb-8 text-gray-300">Innovating Web & ML Solutions</p>
+    <a href="contact.html" class="px-8 py-4 neon-btn font-bold rounded-full text-lg shadow-lg mt-3">Get In Touch</a>
+  </div>
+</section>
+<section class="container mx-auto px-6 py-16">
+  <div class="glass neon-border p-10 mx-auto max-w-3xl text-center mb-10">
+    <h2 class="text-4xl font-bold mb-2 section-title">About Almontech</h2>
+    <p class="text-lg">Led by <span class="font-bold">Yasir Khan</span> & <span class="font-bold">Moaaz Raashid P M</span>.<br>
+    Fusing AI, Design & DevOps for the future.</p>
+  </div>
+</section>
+
+<footer class="py-6 text-center mt-12">
+  <p class="text-purple-400">&copy; <span id="year"></span> Almontech. All rights reserved.</p>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+</body>
+</html>
