@@ -2,65 +2,171 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Almontech | Futuristic Web & ML Solutions</title>
-  
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body {background: #0c061d; color: #f3e8ff; font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;}
-.glass {background: rgba(44,16,56,0.5); backdrop-filter: blur(8px); border-radius: 2rem; border: 2px solid transparent; position: relative; overflow: hidden;}
-.neon-border {border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%); border-image-slice: 1; border-width: 2.5px; border-style: solid; box-shadow: 0 0 18px 0 #b621fe44;}
-.neon-btn {border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%); border-image-slice: 1; border-width: 2.5px; border-style: solid; background: #0c061d; color: #fff; box-shadow: 0 0 18px #b621fe44; transition: background 0.2s, color 0.2s;}
-.neon-btn:hover {background: #191130; color: #ff8cf7;}
-.team-img {border-radius: 100%; border-width: 3.5px; border-style: solid; border-image: linear-gradient(90deg,#b621fe 10%, #f500c7 80%); border-image-slice: 1; box-shadow: 0 0 16px #c026d399;}
-.section-title {text-shadow: 0 0 8px #c026d3;}
-::selection {background: #b621fe66;}
-</style>
 
+  <!-- Fonts + Tailwind -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Base theme */
+    :root { --bg:#0c061d; --ink:#f3e8ff; --glass: rgba(44,16,56,.5); }
+    html,body{height:100%;}
+    body { background: var(--bg); color: var(--ink); font-family: 'Orbitron','Segoe UI',Arial,sans-serif; }
+    ::selection { background:#b621fe66; }
+
+    /* Neon look */
+    .glass { background: var(--glass); backdrop-filter: blur(8px); border-radius: 2rem; border: 2px solid transparent; position: relative; overflow: hidden; }
+    .neon-border { border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%) 1; border-width: 2.5px; border-style: solid; box-shadow: 0 0 18px 0 #b621fe44; }
+    .neon-btn { border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%) 1; border-width: 2.5px; border-style: solid; background: #0c061d; color: #fff; box-shadow: 0 0 18px #b621fe44; transition: background .2s,color .2s; }
+    .neon-btn:hover { background:#191130; color:#ff8cf7; }
+    .team-img { border-radius: 9999px; border-width: 3.5px; border-style: solid; border-image: linear-gradient(90deg,#b621fe 10%, #f500c7 80%) 1; box-shadow: 0 0 16px #c026d399; }
+    .section-title { text-shadow: 0 0 8px #c026d3; }
+
+    /* Navbar shadow on scroll */
+    .nav-scrolled { box-shadow: 0 10px 30px rgba(0,0,0,.35); border-bottom-color: rgba(148,163,184,.25) !important; }
+
+    /* Video: respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      video { display: none !important; }
+    }
+  </style>
 </head>
-<body>
+<body class="antialiased">
 
-<nav class="fixed w-full top-0 left-0 z-50 bg-black bg-opacity-70 backdrop-blur border-b border-gray-800">
-  <div class="container mx-auto flex items-center justify-between px-6 py-4">
-    <a href="index.html" class="text-2xl font-bold text-white tracking-widest section-title">Almontech</a>
-    <div class="flex space-x-8">
-      <a href="index.html" class="hover:text-pink-400">Home</a>
-      <a href="about.html" class="hover:text-pink-400">About</a>
-      <a href="services.html" class="hover:text-pink-400">Services</a>
-      <a href="projects.html" class="hover:text-pink-400">Projects</a>
-      <a href="team.html" class="hover:text-pink-400">Team</a>
-      <a href="careers.html" class="hover:text-pink-400">Careers</a>
-      <a href="blog.html" class="hover:text-pink-400">Blog</a>
-      <a href="contact.html" class="hover:text-pink-400">Contact</a>
+  <!-- NAVBAR -->
+  <nav id="siteNav" class="fixed inset-x-0 top-0 z-50 bg-black/70 backdrop-blur border-b border-gray-800 transition-shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <!-- Brand -->
+        <a href="index.html" class="flex items-center gap-2 group" aria-label="Almontech Home">
+          <span class="text-xl sm:text-2xl font-bold tracking-widest section-title group-hover:text-pink-300 transition-colors">Almontech</span>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="index.html"   class="hover:text-pink-400 transition-colors">Home</a>
+          <a href="about.html"   class="hover:text-pink-400 transition-colors">About</a>
+          <a href="services.html"class="hover:text-pink-400 transition-colors">Services</a>
+          <a href="projects.html"class="hover:text-pink-400 transition-colors">Projects</a>
+          <a href="team.html"    class="hover:text-pink-400 transition-colors">Team</a>
+          <a href="careers.html" class="hover:text-pink-400 transition-colors">Careers</a>
+          <a href="blog.html"    class="hover:text-pink-400 transition-colors">Blog</a>
+          <a href="contact.html" class="px-4 py-2 rounded-full neon-btn font-bold text-sm">Contact</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn"
+          class="md:hidden inline-flex items-center justify-center rounded-xl border border-gray-700/60 bg-black/40 px-3 py-2 text-gray-200 hover:text-white hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-pink-500"
+          aria-label="Open main menu" aria-expanded="false" aria-controls="mobileMenu">
+          <!-- Icon -->
+          <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
     </div>
-  </div>
-</nav>
 
-<section id="home" class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-black">
-  <video autoplay loop muted playsinline
-    class="absolute top-0 left-0 w-full h-full object-cover brightness-50 z-0">
-    <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-digital-earth-1171-large.mp4" type="video/mp4">
-  </video>
-  <div class="relative z-10 flex flex-col items-center w-full">
-    <img src="img/almontech-logo.webp" alt="Almontech Logo" class="w-56 md:w-72 mx-auto mb-6 drop-shadow-2xl" style="filter: drop-shadow(0 0 32px #c026d3;" />
-    <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 section-title">Almontech</h1>
-    <p class="text-2xl md:text-3xl font-semibold mb-8 text-gray-300">Innovating Web & ML Solutions</p>
-    <a href="contact.html" class="px-8 py-4 neon-btn font-bold rounded-full text-lg shadow-lg mt-3">Get In Touch</a>
-  </div>
-</section>
-<section class="container mx-auto px-6 py-16">
-  <div class="glass neon-border p-10 mx-auto max-w-3xl text-center mb-10">
-    <h2 class="text-4xl font-bold mb-2 section-title">About Almontech</h2>
-    <p class="text-lg">Led by <span class="font-bold">Yasir Khan</span> & <span class="font-bold">Moaaz Raashid P M</span>.<br>
-    Fusing AI, Design & DevOps for the future.</p>
-  </div>
-</section>
+    <!-- Mobile panel -->
+    <div id="mobileMenu" class="md:hidden max-h-0 overflow-hidden transition-[max-height] duration-300 ease-out">
+      <div class="px-4 py-3 space-y-1 bg-black/80 border-t border-gray-800">
+        <a href="index.html"   class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Home</a>
+        <a href="about.html"   class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">About</a>
+        <a href="services.html"class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Services</a>
+        <a href="projects.html"class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Projects</a>
+        <a href="team.html"    class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Team</a>
+        <a href="careers.html" class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Careers</a>
+        <a href="blog.html"    class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Blog</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-lg neon-btn text-center font-bold">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<footer class="py-6 text-center mt-12">
-  <p class="text-purple-400">&copy; <span id="year"></span> Almontech. All rights reserved.</p>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</footer>
+  <!-- HERO -->
+  <section id="home" class="relative min-h-[88vh] sm:min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 overflow-hidden bg-black pt-20">
+    <!-- bg video -->
+    <video autoplay loop muted playsinline aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover brightness-50 z-0">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-digital-earth-1171-large.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black/70 z-0"></div>
 
+    <div class="relative z-10 flex flex-col items-center w-full max-w-5xl">
+      <img src="img/almontech-logo.webp" alt="Almontech Logo"
+        class="w-36 sm:w-48 md:w-64 lg:w-72 mx-auto mb-6 drop-shadow-2xl"
+        style="filter: drop-shadow(0 0 32px #c026d3);" />
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 section-title">Almontech</h1>
+      <p class="text-lg sm:text-xl md:text-2xl font-semibold mb-6 text-gray-300">
+        Innovating Web &amp; ML Solutions
+      </p>
+      <a href="contact.html" class="px-6 sm:px-8 py-3 sm:py-4 neon-btn font-bold rounded-full text-base sm:text-lg shadow-lg mt-2">
+        Get In Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+    <div class="glass neon-border p-6 sm:p-10 mx-auto max-w-4xl text-center mb-10">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-3 section-title">About Almontech</h2>
+      <p class="text-sm sm:text-base md:text-lg">
+        Led by <span class="font-bold">Yasir Khan</span> &amp; <span class="font-bold">Moaaz Raashid P M</span>.<br class="hidden sm:block" />
+        Fusing AI, Design &amp; DevOps for the future.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center mt-6 sm:mt-12 border-t border-white/10">
+    <p class="text-purple-400 text-sm sm:text-base">&copy; <span id="year"></span> Almontech. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const mobile = document.getElementById('mobileMenu');
+    const iconOpen  = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+
+    function setMenu(open){
+      btn.setAttribute('aria-expanded', String(open));
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      // Animate height
+      if(open){
+        mobile.style.maxHeight = mobile.scrollHeight + 'px';
+      }else{
+        mobile.style.maxHeight = '0px';
+      }
+    }
+    btn.addEventListener('click', ()=> setMenu(btn.getAttribute('aria-expanded') !== 'true'));
+
+    // Close on link click (mobile)
+    mobile.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => setMenu(false));
+    });
+
+    // Close on Esc
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') setMenu(false);
+    });
+
+    // Navbar shadow on scroll
+    const nav = document.getElementById('siteNav');
+    const onScroll = ()=>{
+      const scrolled = window.scrollY > 6;
+      nav.classList.toggle('nav-scrolled', scrolled);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, {passive:true});
+  </script>
 </body>
 </html>
