@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>99 Names/Titles of Prophet Muhammad ﷺ — With Voice</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#121821; --muted:#9db0c3; --accent:#2bd4bd; --ring:#2bd4bd55; --text:#e9f1f7;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(1200px 800px at 20% -10%, #12202d 0, transparent 60%),linear-gradient(180deg,#0b0f14,#0a0e13);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    header{position:sticky;top:0;backdrop-filter:saturate(1.2) blur(6px);background:#0b0f14cc;border-bottom:1px solid #1c2633}
+    .wrap{max-width:1100px;margin-inline:auto;padding:16px}
+    h1{margin:8px 0 12px;font-size:clamp(22px,3vw,30px)}
+    p.lead{margin:0 0 14px;color:var(--muted)}
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    input[type="search"]{flex:1;min-width:240px;background:#0e141c;border:1px solid #1f2937;border-radius:12px;padding:12px 14px;color:var(--text);outline:none}
+    input[type="search"]:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:16px}
+    .card{background:linear-gradient(180deg,#121821,#0e141c);border:1px solid #1a2330;border-radius:16px;padding:14px;box-shadow:0 8px 24px rgba(0,0,0,.25);display:flex;flex-direction:column;gap:8px}
+    .arabic{font-family:"Amiri", "Scheherazade New", serif;font-size:28px;direction:rtl;text-align:right;letter-spacing:.5px}
+    .roman{color:#cfe6ff;font-weight:600}
+    .meaning{color:var(--muted);font-size:14px}
+    .meta{display:flex;justify-content:space-between;align-items:center;color:#9fb1c2;font-size:12px}
+    .btns{display:flex;gap:8px;flex-wrap:wrap}
+    button{appearance:none;border:1px solid #1f2a37;background:#0f1520;color:var(--text);padding:8px 10px;border-radius:12px;cursor:pointer;font-weight:600}
+    button:hover{border-color:#2bd4bd99;color:#d6fffa}
+    .muteNote{font-size:12px;color:#7f93a8;margin-top:8px}
+    .footer{color:#7f93a8;font-size:12px;padding:16px 0 28px}
+    .count{font-variant-numeric:tabular-nums}
+    .badge{display:inline-flex;align-items:center;gap:6px;border:1px solid #1b2635;border-radius:999px;padding:6px 10px;color:#a9c2d9;background:#0c131b}
+    .kbd{border:1px solid #2a384c;background:#0e1520;border-radius:6px;padding:2px 6px;color:#cce1f7}
+    .topRow{display:flex;justify-content:space-between;gap:10px;align-items:center}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .pill{border:1px solid #203044;background:#0c141f;color:#b9d6ef;padding:4px 8px;border-radius:999px;font-size:12px}
+    @media (prefers-reduced-motion:no-preference){
+      .card{transition:transform .2s ease, border-color .2s ease}
+      .card:hover{transform:translateY(-2px);border-color:#2bd4bd40}
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topRow">
+        <div>
+          <h1>99 Names/Titles of Prophet Muhammad ﷺ</h1>
+          <p class="lead">A curated list from Qur’an and Hadith-based titles. Click the buttons to hear Arabic, transliteration, or meaning.</p>
+        </div>
+        <div class="pill count"><span id="visibleCount">99</span> of <span id="totalCount">99</span></div>
+      </div>
+      <div class="toolbar">
+        <label class="sr-only" for="q">Search names</label>
+        <input id="q" type="search" placeholder="Search (Arabic / transliteration / meaning)…  e.g. رحمة , Mercy , Muhammad" />
+        <button id="speakAll">Play All (Arabic)</button>
+        <button id="stopAll">Stop</button>
+      </div>
+      <div class="muteNote">Tip: On mobile, make sure your device is not on silent. You can also choose an Arabic voice in your browser’s settings if available.</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="grid" class="grid" role="list" aria-label="Names list"></div>
+    <div class="footer">Sources: Classical Islamic scholarship. This list presents well-known titles used for the Prophet ﷺ; unlike the Asmā’ al-Ḥusnā (99 Names of Allah), these titles are descriptive and not a fixed canonical set.</div>
+  </main>
+
+<script>
+// ----------------- Data -----------------
+const NAMES = [
+  {n:1, ar:"مُحَمَّد", tr:"Muhammad", en:"The Praised One"},
+  {n:2, ar:"أَحْمَد", tr:"Ahmad", en:"The Most Praised"},
+  {n:3, ar:"حَامِد", tr:"Hamid", en:"The Praiser of Allah"},
+  {n:4, ar:"مَاحِي", tr:"Mahi", en:"The Remover of Disbelief"},
+  {n:5, ar:"حَاشِر", tr:"Hashir", en:"The Gatherer"},
+  {n:6, ar:"عَاقِب", tr:"Aqib", en:"The Last Prophet"},
+  {n:7, ar:"فَاتِح", tr:"Fatih", en:"The Opener"},
+  {n:8, ar:"أَمِين", tr:"Amin", en:"The Trustworthy"},
+  {n:9, ar:"صَادِق", tr:"Sadiq", en:"The Truthful"},
+  {n:10, ar:"مُصْطَفَى", tr:"Mustafa", en:"The Chosen One"},
+  {n:11, ar:"رَسُول الله", tr:"Rasulullah", en:"Messenger of Allah"},
+  {n:12, ar:"نَبِي الله", tr:"Nabiullah", en:"Prophet of Allah"},
+  {n:13, ar:"نَبِي الرَّحْمَة", tr:"Nabi al-Rahmah", en:"Prophet of Mercy"},
+  {n:14, ar:"نَبِي التَّوْبَة", tr:"Nabi al-Tawbah", en:"Prophet of Repentance"},
+  {n:15, ar:"نَبِي المَلْحَمَة", tr:"Nabi al-Malhamah", en:"Prophet of Battle (Defender of Faith)"},
+  {n:16, ar:"سَيِّدُ الوَلَدِ آدَم", tr:"Sayyid al-Walad Adam", en:"Master of Mankind"},
+  {n:17, ar:"حَبِيب الله", tr:"Habibullah", en:"Beloved of Allah"},
+  {n:18, ar:"شَفِيع", tr:"Shafi'", en:"Intercessor"},
+  {n:19, ar:"مُشَفَّع", tr:"Mushafaa'", en:"Whose intercession is accepted"},
+  {n:20, ar:"طَه", tr:"Taha", en:"Pure"},
+  {n:21, ar:"يَس", tr:"Yasin", en:"Special Address (Yā Sīn)"},
+  {n:22, ar:"مُزَّمِّل", tr:"Muzzammil", en:"The Enwrapped One"},
+  {n:23, ar:"مُدَّثِّر", tr:"Muddaththir", en:"The Cloaked One"},
+  {n:24, ar:"نُور", tr:"Nur", en:"Light"},
+  {n:25, ar:"سِرَاج مُنِير", tr:"Siraj Munir", en:"Luminous Lamp"},
+  {n:26, ar:"بَشِير", tr:"Bashir", en:"Bearer of Glad Tidings"},
+  {n:27, ar:"نَذِير", tr:"Nadhir", en:"Warner"},
+  {n:28, ar:"دَاعِي إِلَى الله", tr:"Da'i ila Allah", en:"Caller to Allah"},
+  {n:29, ar:"هَادِي", tr:"Hadi", en:"Guide"},
+  {n:30, ar:"رَؤُوف", tr:"Ra'uf", en:"Compassionate"},
+  {n:31, ar:"رَحِيم", tr:"Rahim", en:"Merciful"},
+  {n:32, ar:"مَزْكِّي", tr:"Muzakki", en:"Purifier"},
+  {n:33, ar:"مُعَلِّم", tr:"Mu'allim", en:"Teacher"},
+  {n:34, ar:"قَائِمُ اللَّيْل", tr:"Qaim al-Layl", en:"One Who Stands at Night in Prayer"},
+  {n:35, ar:"صَاحِبُ المَقَامِ المَحْمُود", tr:"Sahib al-Maqam al-Mahmud", en:"Owner of the Praised Station"},
+  {n:36, ar:"صَاحِبُ الحَوْض", tr:"Sahib al-Hawd", en:"Owner of the Fountain"},
+  {n:37, ar:"صَاحِبُ اللِّوَاء", tr:"Sahib al-Liwa", en:"Owner of the Banner"},
+  {n:38, ar:"خَاتَمُ النَّبِيِّين", tr:"Khatam al-Nabiyyin", en:"Seal of the Prophets"},
+  {n:39, ar:"أُمِّي", tr:"Ummi", en:"Unlettered (Pure from worldly learning)"},
+  {n:40, ar:"طَيِّب", tr:"Tayyib", en:"Pure"},
+  {n:41, ar:"مُتَوَاضِع", tr:"Mutawadi'", en:"Humble"},
+  {n:42, ar:"زَاهِد", tr:"Zahid", en:"Abstinent from worldliness"},
+  {n:43, ar:"صَابِر", tr:"Sabir", en:"Patient"},
+  {n:44, ar:"شَاكِر", tr:"Shakir", en:"Thankful"},
+  {n:45, ar:"حَفِيظ", tr:"Hafiz", en:"Protector"},
+  {n:46, ar:"كَرِيم", tr:"Karim", en:"Generous"},
+  {n:47, ar:"نَاصِح", tr:"Nasih", en:"Sincere Advisor"},
+  {n:48, ar:"مُبِين", tr:"Mubin", en:"Clear in Speech"},
+  {n:49, ar:"مَأْمُون", tr:"Ma'moon", en:"Trusted"},
+  {n:50, ar:"غَفُور", tr:"Ghafur", en:"Forgiving"},
+  {n:51, ar:"حَكِيم", tr:"Hakim", en:"Wise"},
+  {n:52, ar:"عَزِيز", tr:"Aziz", en:"Mighty"},
+  {n:53, ar:"مُنْصِف", tr:"Munsif", en:"Just"},
+  {n:54, ar:"سَيِّد", tr:"Sayyid", en:"Leader"},
+  {n:55, ar:"مَرْحُوم", tr:"Marhum", en:"One shown mercy"},
+  {n:56, ar:"مُكَرَّم", tr:"Mukarram", en:"Honored"},
+  {n:57, ar:"مَسْعُود", tr:"Mas'ud", en:"Blessed"},
+  {n:58, ar:"صَفِيّ الله", tr:"Safiyyullah", en:"The Chosen Friend of Allah"},
+  {n:59, ar:"مُجَاهِد", tr:"Mujahid", en:"Striver in the path of Allah"},
+  {n:60, ar:"مَرْضِيّ", tr:"Mardiyy", en:"Pleasing to Allah"},
+  {n:61, ar:"مُقَرَّب", tr:"Muqarrab", en:"Near to Allah"},
+  {n:62, ar:"أَوَّاب", tr:"Awwab", en:"Oft-Returning to Allah"},
+  {n:63, ar:"صَدِيق", tr:"Siddiq", en:"Extremely Truthful"},
+  {n:64, ar:"مَعْصُوم", tr:"Ma'sum", en:"Protected from sin"},
+  {n:65, ar:"مَكِين", tr:"Makin", en:"Firmly Established"},
+  {n:66, ar:"بَارّ", tr:"Barr", en:"Pious"},
+  {n:67, ar:"مَجِيد", tr:"Majid", en:"Glorious"},
+  {n:68, ar:"شَرِيف", tr:"Sharif", en:"Noble"},
+  {n:69, ar:"مُحِبّ", tr:"Muhibb", en:"Loving"},
+  {n:70, ar:"مُهْتَدٍ", tr:"Muhtadi", en:"Rightly Guided"},
+  {n:71, ar:"صَاحِبُ الشَّفَاعَة", tr:"Sahib al-Shafa'ah", en:"Owner of Intercession"},
+  {n:72, ar:"صَاحِبُ الكَوْثَر", tr:"Sahib al-Kawthar", en:"Owner of the River Kawthar"},
+  {n:73, ar:"صَاحِبُ النِّعْمَة", tr:"Sahib al-Ni'mah", en:"Owner of Blessing"},
+  {n:74, ar:"صَاحِبُ الرِّسَالَة", tr:"Sahib al-Risalah", en:"Owner of the Message"},
+  {n:75, ar:"خَاتِم", tr:"Khatim", en:"The Final One"},
+  {n:76, ar:"مُكَمِّل", tr:"Mukammil", en:"Completer"},
+  {n:77, ar:"مُبَشِّر", tr:"Mubashshir", en:"Bringer of Good News"},
+  {n:78, ar:"مُذَكِّر", tr:"Mudhakkir", en:"Reminder"},
+  {n:79, ar:"قَائِد", tr:"Qaid", en:"Leader"},
+  {n:80, ar:"نَاصِر", tr:"Nasir", en:"Helper"},
+  {n:81, ar:"حَفِيّ", tr:"Hafiyy", en:"Caring"},
+  {n:82, ar:"رَاعٍ", tr:"Ra'i", en:"Shepherd"},
+  {n:83, ar:"مَحْمُود", tr:"Mahmood", en:"Praised"},
+  {n:84, ar:"عَادِل", tr:"Adil", en:"Just"},
+  {n:85, ar:"مَظْهَرُ النُّور", tr:"Mazhar al-Nur", en:"Manifestation of Light"},
+  {n:86, ar:"مَظْهَرُ الحَقّ", tr:"Mazhar al-Haqq", en:"Manifestation of Truth"},
+  {n:87, ar:"مُقْسِط", tr:"Muqsit", en:"Equitable"},
+  {n:88, ar:"مَانِح", tr:"Manih", en:"Giver"},
+  {n:89, ar:"مَانِع", tr:"Mani'", en:"Preventer (of harm)"},
+  {n:90, ar:"مُهَذِّب", tr:"Muhadhdhib", en:"Refiner"},
+  {n:91, ar:"مُطِيع", tr:"Muti'", en:"Obedient to Allah"},
+  {n:92, ar:"مُعْطِي", tr:"Mu'ti", en:"Giver"},
+  {n:93, ar:"مَفْتُوح", tr:"Maftuh", en:"Open-Hearted"},
+  {n:94, ar:"مَقْبُول", tr:"Maqbul", en:"Accepted"},
+  {n:95, ar:"مُؤَيَّد", tr:"Mu'ayyad", en:"Supported (by Allah)"},
+  {n:96, ar:"مَظْلُوم", tr:"Mazlum", en:"Oppressed (yet patient)"},
+  {n:97, ar:"مُحْسِن", tr:"Muhsin", en:"Doer of Good"},
+  {n:98, ar:"مُوَحِّد", tr:"Muwahhid", en:"Proclaimer of Allah’s Oneness"},
+  {n:99, ar:"صَاحِبُ الخُلُق العَظِيم", tr:"Sahib al-Khuluq al-Azim", en:"Possessor of Great Character"},
+];
+
+// ----------------- DOM render -----------------
+const grid = document.getElementById('grid');
+const totalCount = document.getElementById('totalCount');
+const visibleCount = document.getElementById('visibleCount');
+const q = document.getElementById('q');
+
+totalCount.textContent = NAMES.length;
+
+function makeCard({n, ar, tr, en}){
+  const el = document.createElement('article');
+  el.className = 'card';
+  el.setAttribute('role','listitem');
+  el.innerHTML = `
+    <div class="meta"><span class="badge">#${n}</span><span class="badge">${tr.length <= 16 ? tr : tr.slice(0,16)+'…'}</span></div>
+    <div class="arabic" dir="rtl" lang="ar">${ar}</div>
+    <div class="roman">${tr}</div>
+    <div class="meaning">${en}</div>
+    <div class="btns">
+      <button data-say="${ar}" data-lang="ar">🔊 Arabic</button>
+      <button data-say="${tr}" data-lang="en">🔊 Transliteration</button>
+      <button data-say="${en}" data-lang="en">🔊 Meaning</button>
+    </div>
+  `;
+  return el;
+}
+
+function render(list){
+  grid.innerHTML = '';
+  list.forEach(item=>grid.appendChild(makeCard(item)));
+  visibleCount.textContent = list.length;
+}
+render(NAMES);
+
+// ----------------- Search -----------------
+q.addEventListener('input', (e)=>{
+  const v = e.target.value.trim().toLowerCase();
+  if(!v){ render(NAMES); return; }
+  const filtered = NAMES.filter(x =>
+    x.ar.replace(/[\u064B-\u0652]/g,'').includes(v) ||
+    x.tr.toLowerCase().includes(v) ||
+    x.en.toLowerCase().includes(v)
+  );
+  render(filtered);
+});
+
+// ----------------- Speech -----------------
+let queue = [];
+let speakingAll = false;
+
+function getVoiceForLang(lang){
+  // Prefer an Arabic voice when lang starts with 'ar'
+  const voices = window.speechSynthesis.getVoices();
+  if(lang.startsWith('ar')){
+    const ar = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('ar'));
+    if(ar) return ar;
+  }
+  // graceful fallback
+  return voices.find(v => v.lang && v.lang.toLowerCase().startsWith('en')) || voices[0] || null;
+}
+
+function say(text, lang='en'){
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = lang.startsWith('ar') ? 'ar' : 'en-US';
+  const voice = getVoiceForLang(u.lang);
+  if(voice) u.voice = voice;
+  u.rate = 0.95; u.pitch = 1; u.volume = 1;
+  window.speechSynthesis.speak(u);
+  return u;
+}
+
+function stopSpeaking(){
+  speakingAll = false;
+  window.speechSynthesis.cancel();
+  queue = [];
+}
+
+// Delegate button clicks
+grid.addEventListener('click', (e)=>{
+  const btn = e.target.closest('button[data-say]');
+  if(!btn) return;
+  const text = btn.getAttribute('data-say');
+  const lang = btn.getAttribute('data-lang') || 'en';
+  say(text, lang);
+});
+
+// Play All (Arabic)
+const playAllBtn = document.getElementById('speakAll');
+const stopAllBtn = document.getElementById('stopAll');
+
+playAllBtn.addEventListener('click', ()=>{
+  stopSpeaking();
+  speakingAll = true;
+  const current = [...grid.querySelectorAll('.card .arabic')].map((el)=> el.textContent.trim());
+  queue = current;
+  const next = () => {
+    if(!speakingAll || queue.length === 0) return;
+    const phrase = queue.shift();
+    const u = say(phrase, 'ar');
+    u.onend = () => next();
+  };
+  next();
+});
+
+stopAllBtn.addEventListener('click', stopSpeaking);
+
+// On some browsers getVoices is async
+if (typeof speechSynthesis !== 'undefined'){
+  speechSynthesis.onvoiceschanged = ()=>{};
+}
+</script>
+</body>
+</html>
