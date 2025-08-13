@@ -2,63 +2,148 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Team | Almontech</title>
-  
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body {background: #0c061d; color: #f3e8ff; font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;}
-.glass {background: rgba(44,16,56,0.5); backdrop-filter: blur(8px); border-radius: 2rem; border: 2px solid transparent; position: relative; overflow: hidden;}
-.neon-border {border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%); border-image-slice: 1; border-width: 2.5px; border-style: solid; box-shadow: 0 0 18px 0 #b621fe44;}
-.neon-btn {border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%); border-image-slice: 1; border-width: 2.5px; border-style: solid; background: #0c061d; color: #fff; box-shadow: 0 0 18px #b621fe44; transition: background 0.2s, color 0.2s;}
-.neon-btn:hover {background: #191130; color: #ff8cf7;}
-.team-img {border-radius: 100%; border-width: 3.5px; border-style: solid; border-image: linear-gradient(90deg,#b621fe 10%, #f500c7 80%); border-image-slice: 1; box-shadow: 0 0 16px #c026d399;}
-.section-title {text-shadow: 0 0 8px #c026d3;}
-::selection {background: #b621fe66;}
-</style>
 
+  <!-- Fonts + Tailwind -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { background:#0c061d; color:#f3e8ff; font-family:'Orbitron','Segoe UI',Arial,sans-serif; }
+    .glass { background:rgba(44,16,56,.5); backdrop-filter: blur(8px); border-radius:2rem; border:2px solid transparent; position:relative; overflow:hidden; }
+    .neon-border { border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%) 1; border-width:2.5px; border-style:solid; box-shadow:0 0 18px 0 #b621fe44; }
+    .neon-btn { border-image: linear-gradient(90deg,#f500c7 10%,#b621fe 40%,#00f2fe 100%) 1; border-width:2.5px; border-style:solid; background:#0c061d; color:#fff; box-shadow:0 0 18px #b621fe44; transition:background .2s,color .2s; }
+    .neon-btn:hover { background:#191130; color:#ff8cf7; }
+    .team-img { border-radius:9999px; border-width:3.5px; border-style:solid; border-image: linear-gradient(90deg,#b621fe 10%, #f500c7 80%) 1; box-shadow:0 0 16px #c026d399; }
+    .section-title { text-shadow:0 0 8px #c026d3; }
+    ::selection { background:#b621fe66; }
+
+    /* Navbar shadow when scrolling */
+    .nav-scrolled { box-shadow:0 10px 30px rgba(0,0,0,.35); border-bottom-color:rgba(148,163,184,.25)!important; }
+  </style>
 </head>
-<body>
 
-<nav class="fixed w-full top-0 left-0 z-50 bg-black bg-opacity-70 backdrop-blur border-b border-gray-800">
-  <div class="container mx-auto flex items-center justify-between px-6 py-4">
-    <a href="index.html" class="text-2xl font-bold text-white tracking-widest section-title">Almontech</a>
-    <div class="flex space-x-8">
-      <a href="index.html" class="hover:text-pink-400">Home</a>
-      <a href="about.html" class="hover:text-pink-400">About</a>
-      <a href="services.html" class="hover:text-pink-400">Services</a>
-      <a href="projects.html" class="hover:text-pink-400">Projects</a>
-      <a href="team.html" class="hover:text-pink-400">Team</a>
-      <a href="careers.html" class="hover:text-pink-400">Careers</a>
-      <a href="blog.html" class="hover:text-pink-400">Blog</a>
-      <a href="contact.html" class="hover:text-pink-400">Contact</a>
-    </div>
-  </div>
-</nav>
+<body class="antialiased">
 
-<section class="container mx-auto px-6 py-32">
-  <div class="glass neon-border max-w-4xl mx-auto p-10 text-center mt-12">
-    <h2 class="text-4xl font-bold mb-6 section-title">Our Team</h2>
-    <div class="flex flex-wrap justify-center gap-12">
-      <div class="glass neon-border p-6 w-80 text-center">
-        <img src="https://randomuser.me/api/portraits/men/41.jpg" class="team-img w-32 h-32 mx-auto mb-4 object-cover" alt="Yasir Khan">
-        <h3 class="text-xl font-bold section-title">Yasir Khan</h3>
-        <p>Co-Founder & Full-Stack Developer</p>
+  <!-- NAV -->
+  <nav id="siteNav" class="fixed inset-x-0 top-0 z-50 bg-black/70 backdrop-blur border-b border-gray-800 transition-shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <!-- Brand -->
+        <a href="index.html" class="flex items-center gap-2 group" aria-label="Almontech Home">
+          <span class="text-xl sm:text-2xl font-bold tracking-widest section-title group-hover:text-pink-300 transition-colors">Almontech</span>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="index.html"   class="hover:text-pink-400 transition-colors">Home</a>
+          <a href="about.html"   class="hover:text-pink-400 transition-colors">About</a>
+          <a href="services.html"class="hover:text-pink-400 transition-colors">Services</a>
+          <a href="projects.html"class="hover:text-pink-400 transition-colors">Projects</a>
+          <a href="team.html"    class="hover:text-pink-400 transition-colors">Team</a>
+          <a href="careers.html" class="hover:text-pink-400 transition-colors">Careers</a>
+          <a href="blog.html"    class="hover:text-pink-400 transition-colors">Blog</a>
+          <a href="contact.html" class="px-4 py-2 rounded-full neon-btn font-bold text-sm">Contact</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn"
+          class="md:hidden inline-flex items-center justify-center rounded-xl border border-gray-700/60 bg-black/40 px-3 py-2 text-gray-200 hover:text-white hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-pink-500"
+          aria-label="Open main menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
-      <div class="glass neon-border p-6 w-80 text-center">
-        <img src="https://randomuser.me/api/portraits/men/97.jpg" class="team-img w-32 h-32 mx-auto mb-4 object-cover" alt="Moaaz Raashid P M">
-        <h3 class="text-xl font-bold section-title">Moaaz Raashid P M</h3>
-        <p>Co-Founder & ML Engineer</p>
+    </div>
+
+    <!-- Mobile panel -->
+    <div id="mobileMenu" class="md:hidden max-h-0 overflow-hidden transition-[max-height] duration-300 ease-out">
+      <div class="px-4 py-3 space-y-1 bg-black/80 border-t border-gray-800">
+        <a href="index.html"   class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Home</a>
+        <a href="about.html"   class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">About</a>
+        <a href="services.html"class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Services</a>
+        <a href="projects.html"class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Projects</a>
+        <a href="team.html"    class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Team</a>
+        <a href="careers.html" class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Careers</a>
+        <a href="blog.html"    class="block px-3 py-2 rounded-lg hover:bg-white/5 hover:text-pink-300">Blog</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-lg neon-btn text-center font-bold">Contact</a>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<footer class="py-6 text-center mt-12">
-  <p class="text-purple-400">&copy; <span id="year"></span> Almontech. All rights reserved.</p>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</footer>
+  <!-- TEAM -->
+  <main class="pt-24 sm:pt-28">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+      <div class="glass neon-border max-w-4xl mx-auto p-6 sm:p-10 text-center">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-6 section-title">Our Team</h1>
 
+        <!-- Responsive grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
+          <!-- Card 1 -->
+          <article class="glass neon-border p-6 text-center">
+            <img
+              src=""
+              alt="Portrait of Yasir Khan"
+              class="team-img w-32 h-32 mx-auto mb-4 object-cover"
+              loading="lazy" decoding="async" width="128" height="128">
+            <h2 class="text-xl font-bold section-title">Yasir Khan</h2>
+            <p class="text-sm sm:text-base">Co-Founder &amp; Full-Stack Developer</p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="glass neon-border p-6 text-center">
+            <img
+              src=""
+              alt="Portrait of Moaaz Raashid P M"
+              class="team-img w-32 h-32 mx-auto mb-4 object-cover"
+              loading="lazy" decoding="async" width="128" height="128">
+            <h2 class="text-xl font-bold section-title">Moaaz Raashid P M</h2>
+            <p class="text-sm sm:text-base">Co-Founder &amp; ML Engineer</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center mt-6 sm:mt-12 border-t border-white/10">
+    <p class="text-purple-400 text-sm sm:text-base">&copy; <span id="year"></span> Almontech. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const mobile = document.getElementById('mobileMenu');
+    const iconOpen  = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+
+    function setMenu(open){
+      btn?.setAttribute('aria-expanded', String(open));
+      iconOpen?.classList.toggle('hidden', open);
+      iconClose?.classList.toggle('hidden', !open);
+      mobile.style.maxHeight = open ? mobile.scrollHeight + 'px' : '0px';
+    }
+    btn?.addEventListener('click', ()=> setMenu(btn.getAttribute('aria-expanded') !== 'true'));
+
+    // Close menu on link click (mobile)
+    mobile?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+    // Close on Esc
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') setMenu(false); });
+
+    // Navbar shadow on scroll
+    const nav = document.getElementById('siteNav');
+    function onScroll(){ nav?.classList.toggle('nav-scrolled', window.scrollY > 6); }
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  </script>
 </body>
 </html>
